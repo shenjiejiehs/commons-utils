@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="commons-utils">
+	<target name="package" description="打包">
+		<exec executable="mvn">
+			<arg line="clean package" />
+		</exec>
+
+	</target>
+
+	<target name="deploy" description="发布">
+		<exec executable="mvn">
+			<arg line="deploy" />
+		</exec>
+
+	</target>
+</project>

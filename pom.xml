@@ -1,0 +1,157 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.huoli</groupId>
+	<artifactId>commons-utils</artifactId>
+	<version>1.0.77</version>
+	<name>commons-utils</name>
+	<description>
+	<![CDATA[
+		通用工具包  
+		1.0.18 修改字符工具中对比bug
+		1.0.19 修改工具包计算距离的方法
+		1.0.20 时间工具包增加计算机票航班时间功能
+		1.0.21 随机数生成增加提供数据获取功能
+		1.0.22 修改json解析中的配置数据功能
+		1.0.23 增加对称加密功能
+		1.0.24 增加特殊Emoji表情符的替换功能 
+		1.0.25 版本判断增加为空判断
+		1.0.26 根据位置信息（经纬度）和距离获取矩形范围
+		1.0.27 优化增加特殊Emoji表情符过滤功能
+		1.0.28 增加字符帮助功能
+		1.0.29 修复处理日期格式异常打印功能
+		1.0.30 增加手机号、电话号码、邮箱等验证功能
+		1.0.31 时间帮助类增加时区转换功能
+		1.0.32 修改替换Emoji表情符时先验证普通符号
+		1.0.34 修改手机号验证功能并加强过滤情况
+		增加特殊字母、符号验证和过滤功能
+		1.0.35 增加比较两个时间天数的差值函数(江晟)
+		1.0.37 增加JsonUtil工具类(童凡)
+		1.0.38 DateTimeUtil增加testFillYearNearly(MM-dd就近补年份的方法),setNow支持日期(童凡)
+		1.0.39 JsonUtil增加转换对象的方法(童凡)
+		1.0.40 JsonBinder增加转换对象的方法(罗良杰)
+		1.0.41 JsonUtil.toString针对null做处理(童凡)
+		1.0.42 JsonUtil.toMap针对null做处理(罗良杰)
+		1.0.43 增加特殊字符过滤(罗良杰)
+		1.0.44 移植机票api部分通用功能（罗良杰）
+		1.0.45 增加ip转换数字功能（罗良杰）
+		1.0.46 JsonUtil增加美化格式的toString方法（童凡）
+		1.0.47 增加ip转换数字功能（罗良杰）
+		1.0.52 '䮞'标识为中文（鄧全超）
+		1.0.53 DateTimeUtil增加nowString方法（童凡）
+		1.0.54 增加正则表达式缓存以及查找功能（罗良杰）
+		1.0.55 增加加密数据字符集选择（罗良杰）
+		1.0.56 增加xml文件转换为json数据（罗良杰）
+		1.0.57 StringUtil类中增加全角符号转半角full2Half/半角符号转全角half2Full函数
+		1.0.58 增加map数据转换各种类型功能（罗良杰）
+		1.0.59 优化json转换功能（罗良杰）
+		1.0.60 修改DateTimeUtil异常日志以及增加数字帮助工具，修改文件处理bug（罗良杰）
+		1.0.61 修改xmltojson功能（罗良杰）
+		1.0.62 增加map帮助集成API平时常用功能（罗良杰）
+		1.0.63 mapUtil 增加map以及list功能（罗良杰）
+		1.0.64 增加Object转换方法（罗良杰）
+		1.0.65 去掉xml转json方法（罗良杰）
+		1.0.66 修改JsonBinder默认对象BUG（罗良杰）
+		1.0.67 修改获取身份证生日BUG（罗良杰）
+		1.0.68 修改获取时间差BUG（罗良杰）
+		1.0.69 修改jsonUtil.toObject的null BUG（罗良杰）
+		1.0.70 修改StringUtil.isNumber和isDouble的负数验证（罗良杰）
+		1.0.71 修复email检测正则表达式效率问题（罗良杰）
+		1.0.72 修复未知对象为String时json转换问题（罗良杰）
+		1.0.73 修复根据身份证获取性别BUG（罗良杰）
+		1.0.74 优化手机号验证功能、修复数组转字符为空情况（罗良杰）
+		1.0.75 修改比较版本方法在非版本情况下BUG（罗良杰）
+		1.0.76 修改jsonUtil.toStringMap功能（罗良杰）
+		1.0.77 修订DateTimeUtil,去掉了一个synchronized关键字,对一部分格式化,使用了FastDateFormat(童凡)
+	]]>
+	</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.huoli</groupId>
+				<artifactId>huoli-dependency-infrastructure</artifactId>
+				<version>1.0.26</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Local Nexus Repository</name>
+			<url>http://221.235.53.166:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Local Nexus Repository</name>
+			<url>http://221.235.53.166:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
